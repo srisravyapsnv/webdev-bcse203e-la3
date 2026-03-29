@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World!</title>
+    </head>
+
+    <body>
+        <p>Click the Button below<br></p>
+        <button onclick = "showMessage()">Display Hello World</button>
+        <p id = "element"></p>
+        <p>P S N V Sri Sravya, 24BCE2267</p>
+    </body>
+
+    <script>
+        function showMessage()
+        {
+            var message = "Hello World!!";
+            document.getElementById("element").outerHTML = "<p>" + message + "</p>";
+        }
+    </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text Styling</title>
+        <style>
+            .bold {font-weight: bold;}
+            .italic {font-style: italic;}
+            .smallcaps {font-variant: small-caps;}
+        </style>
+    </head>
+
+    <body>
+        <h1>Text Styling</h1>
+        <textarea id = "text"></textarea>
+        <fieldset>
+            <legend>
+                Styles
+            </legend>
+            <button onclick = "toggle('bold')">Bold</button>
+            <button onclick = "toggle('italic')">Italic</button>
+            <button onclick = "toggle('smallcaps')">Small Caps</button>
+        </fieldset>
+        <button onclick = "apply()">Apply</button>
+        <p id = "result"></p>
+        <p>P S N V Sri Sravya, 24BCE2267</p>
+    </body>
+    <script>
+        var classes = "";
+        function toggle(style) {
+            if (classes.includes(style))
+            {
+                classes = classes.replace(style, "").trim();
+            }
+            else
+            {
+                classes += " " + style;
+            }
+        }
+
+        function apply()
+        {
+            var output = document.getElementById('result');
+            var text = document.getElementById('text').value;
+            output.className = classes;
+            output.textContent = text;
+        }
+
+    </script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Area of a Rectangle</title>
+    </head>
+
+    <body>
+        Enter the Values:<br><br>
+        Length: <input type = "text" id = "length"><br><br>
+        Width: <input type = "text" id = "width"><br><br>
+        <button type = "button" onclick = "calculateArea()">Calculate Area</button>
+        <p id = "areaDisplay"></p><br>
+        <p>P S N V Sri Sravya, 24BCE2267</p>
+    </body>
+
+    <script>
+        function calculateArea()
+        {
+            var lengthVal = document.getElementById("length").value;
+            var widthVal = document.getElementById("width").value;
+
+            lengthVal = parseFloat(lengthVal);
+            widthVal = parseFloat(widthVal);
+            
+            var areaVal = lengthVal * widthVal;
+
+            document.getElementById("areaDisplay").innerHTML = "Area of the Rectangle: " + areaVal;
+        }
+    </script>
+</html>

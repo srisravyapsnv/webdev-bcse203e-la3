@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkbox Selection</title>
+    </head>
+
+    <body>
+        <h1>Subject Selection</h1>
+        <div>
+            <input type = "checkbox" name = "subject" value = "Python">Python<br>
+            <input type = "checkbox" name = "subject" value = "Java">Java<br>
+            <input type = "checkbox" name = "subject" value = "Web Development">Web Development<br>
+            <input type = "checkbox" name = "subject" value = "OOPS">OOPS<br><br>
+
+            <button type = "button" onclick="showSubject()">Show Selection</button>
+            <p id = "result"></p>
+            <p>P S N V Sri Sravya, 24BCE2267</p>
+        </div>
+    </body>
+
+    <script>
+        function showSubject()
+        {
+            var subjects = document.getElementsByName('subject');
+            var selcetedSubjects = [];
+            var count = 0;
+            for (var i = 0; i<subjects.length; i++)
+            {
+                if (subjects[i].checked)
+                {
+                    selcetedSubjects.push(subjects[i].value);
+                    count++;
+                }
+            }
+            var result = selcetedSubjects.join(", ")
+            document.getElementById('result').innerHTML = "SelectedSubjects: " + result
+            + "<br>" + "Number of Subjects Selected: " + count;
+        }
+    </script>
+</html>
+

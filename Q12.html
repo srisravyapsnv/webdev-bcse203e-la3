@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Skills Form</title>
+    </head>
+
+    <body>
+        <h1></h1>
+        <form>
+            <input type = "checkbox" name = "skills" value = "Python">Python<br>
+            <input type = "checkbox" name = "skills" value = "Java">Java<br>
+            <input type = "checkbox" name = "skills" value = "DSA">DSA<br>
+            <input type = "checkbox" name = "skills" value = "Algorithm Design">Algorithm Design<br>
+            <input type = "checkbox" name = "skills" value = "System Design">System Design<br>
+            <input type = "checkbox" name = "skills" value = "Database(SQL)">Database(SQL)<br><br>
+            
+            <button type = "button" onclick="checkValiditySkills(this.form)">Submit</button>
+            <p id = "result"></p>
+            <p>P S N V Sri Sravya, 24BCE2267</p>
+        </form>
+    </body>
+
+    <script>
+        function checkValiditySkills(form)
+        {
+            var skills = document.getElementsByName('skills');
+            var selectedSkills = [];
+
+            for (var i = 0; i < skills.length; i++)
+            {
+                if (skills[i].checked)
+                {
+                    selectedSkills.push(skills[i].value);
+                }
+            }
+
+            if (selectedSkills.length < 3)
+            {
+                document.getElementById('result').innerHTML = "Error: Select minimum of 3 skills";
+            }
+            else
+            {
+                document.getElementById('result').innerHTML = "Selected Skills:" + selectedSkills.join(", ");
+            }
+        }
+    </script>
+</html>

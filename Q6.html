@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Information System</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: beige;
+                padding: 20px;
+                margin: 20px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                margin: 10px;
+                padding-left: 100px;
+                padding-right: 100px;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                background-color: rgb(97, 45, 0);
+                color: white;
+                border-radius: 10px;
+                width: 250px;
+            }
+            input, select {
+                width: 100%;
+                margin: 5px 0;
+                padding: 5px;
+            }
+            button {
+                margin: 10px;
+                padding: 5px;
+                width: 100%;
+            }
+            table {
+                margin: 20px auto;
+                border-collapse: collapse;
+                width: 80%;
+            }
+            table, th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+            th {
+                background-color: rgb(97, 45, 0);
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Student Information Form</h1>
+        <form>
+            Name:<input type = "text" name = "name">
+            Age: <input type = "number" name = "age">
+            Register Number <input type = "text" name = "reg-num">
+            Course: 
+            <select name = "course">
+                <option value = "CSE">CSE</option>
+                <option value = "ECE">ECE</option>
+                <option value = "EEE">EEE</option>
+                <option value = "IT">IT</option>
+            </select>  
+
+            <button type = "button" onclick = "addStudent(this.form)">Add</button>
+            <button type = "button" onclick = "clearForm(this.form)">Reset</button>
+        </form>
+
+        <table id = "table">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Register Number</th>
+                <th>Course</th>
+            </tr>
+        </table>
+        <p>P S N V Sri Sravya, 24BCE2267</p>
+    </body>
+
+    <script>
+        var students = [];
+        function Student(name, age, regNum, course) {
+            this.name = name;
+            this.age = age;
+            this.regNum = regNum;
+            this.course = course;
+        } 
+        function addStudent(form) {
+            var name = form.elements["name"].value;
+            var age = form.elements["age"].value;
+            var regNum = form.elements["reg-num"].value;
+            var course = form.elements["course"].value;
+
+            var student = new Student(name, age, regNum, course);
+
+            students.push(student);
+
+            displayStudents();
+
+            form.reset();
+            form.elements["name"].focus();
+        }
+
+        function displayStudents()
+        {
+            var studentTable = document.getElementById("table");
+            studentTable.innerHTML = `
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Register Number</th>
+                    <th>Course</th>
+                </tr>
+                `;
+                
+                for (var i = 0; i <students.length; i++)
+                {
+                    var data = "<tr>" + 
+                        "<td>" + students[i].name + "</td>" +
+                        "<td>" + students[i].age + "</td>" +
+                        "<td>" + students[i].regNum + "</td>" +
+                        "<td>" + students[i].course + "</td>" +
+                        "</tr>";
+                    studentTable.innerHTML += data;
+                }      
+        }
+
+        function clearForm(form)
+        {
+            var studentTable = document.getElementById("table");
+            studentTable.innerHTML = `
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Register Number</th>
+                    <th>Course</th>
+                </tr>
+                `;
+        }
+    </script>
+
+</html>

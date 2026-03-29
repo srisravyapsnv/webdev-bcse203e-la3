@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Product Order Form
+        </title>
+    </head>
+
+    <body>
+        <h1>Product Order Form</h1>
+        <form>
+            <fieldset>
+                <legend>Electronics</legend>
+                <input type = "checkbox" name = "product" value = "1000"> Headphones (Rs. 1000)<br>
+                <input type = "checkbox" name = "product" value = "1500"> Keyboard (Rs. 1500)<br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Clothing</legend>
+                <input type = "checkbox" name = "product" value = "500"> T-Shirt (Rs. 500)<br>
+                <input type = "checkbox" name = "product" value = "1200"> Varsity (Rs. 1200)<br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Accessories</legend>
+                <input type = "checkbox" name = "product" value = "600"> Bag (Rs. 600)<br>
+                <input type = "checkbox" name = "product" value = "150"> Earrings (Rs. 150)<br>
+            </fieldset>
+            <button type = "button" onclick = "calculateTotal(this.form)">Calculate Total</button>
+        </form>
+        <h3 id = "result"></h3>
+        <p>P S N V Sri Sravya</p>
+    </body>
+
+    <script>
+        function calculateTotal(form)
+        {
+            var items = document.getElementsByName('product');
+            var total = 0;
+            for (var item of items)
+            {
+                if (item.checked)
+                {
+                    var val = parseFloat(item.value);
+                    total += val;
+                }
+            }
+            document.getElementById('result').innerHTML = "Total Value: " + total;
+        } 
+    </script>
+</html>
+

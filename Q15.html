@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic Font Customization Tool</title>
+    </head>
+
+    <body>
+        <p id = "text">Lorem Epsum</p>
+        <fieldSet>
+            <legend>Customize Font</legend>
+            Font Size: <input type = "range" min = "0" max = "100" value = "24" oninput = "changeSize(this.value)"> <br>
+            Text Color: <input type = "color" oninput="changeColor(this.value)"><br>
+            Background Color: <input type = "color" oninput="changeBackground(this.value)">
+        </fieldSet>
+        <h3>P S N V Sri Sravya, 24BCE2267</h3>
+        <script>
+            function changeSize(value)
+            {
+                document.getElementById('text').style.fontSize = value + "px";
+            }
+
+            function changeColor(value)
+            {
+                document.getElementById('text').style.color = value;
+            }
+
+            function changeBackground(value)
+            {
+                document.body.style.backgroundColor = value;
+            }
+        </script>
+    </body>
+</html>

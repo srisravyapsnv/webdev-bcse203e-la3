@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiplication Table</title>
+    </head>
+
+    <body>
+        <h1>Print Multiplication Table</h1>
+        Enter the Value of N:
+        <input type = number id = "num"><br><br>
+        <button type = "button" id = "print-btn" onclick="printMul()">Print</button>
+        <p id = "print-num"></p>
+        <p>P S N V Sri Sravya, 24BCE2267</p>
+    </body>
+
+    <script>
+        function printMul() {
+            var n = document.getElementById("num").value;
+            n = parseInt(n);
+            var k = document.getElementById("print-num");
+            k.innerHTML = "";
+            var i = 1;
+            do {
+                var val = n * i;
+                k.innerHTML += n + " x " + i + " = " + val + "<br>";
+                i++;
+            } while(i <= 10);
+        }
+    </script>
+</html>

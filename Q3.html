@@ -1,0 +1,45 @@
+<!-- Create an Email Address Generator web page that takes first name and last name as input, generates an email address in the format "firstname.lastname@park.edu", displays it, clears the form, and sets focus back to the first name field.
+Concepts:
+–	form.elements access
+–	String concatenation (+ operator)
+–	innerHTML
+–	reset() method
+–	focus() method
+–	this.form -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Email Address Generator</title>
+    </head>
+
+    <body>
+        <h1>Email Address Generator</h1>
+        <form id = "email-form">
+            <label>First Name</label>
+            <input type = "text" name = "first-name">
+            <br>
+            <br>
+            <label>Last Name</label>
+            <input type = "text" name = "last-name">
+            <br>
+            <br>
+            <button type = "button" onclick="generateMail(this.form)">Generate</button>
+            <p id = "display-address"></p>
+            <h3>P S N V Sri Sravya, 24BCE2267</h3>
+        </form>
+    </body>
+
+    <script>
+        function generateMail(form)
+        {
+            var firstName = form.elements["first-name"].value;
+            var lastName = form.elements["last-name"].value;
+
+            var address = firstName + "." + lastName + "@park.edu";
+            document.getElementById("display-address").innerHTML = address;
+
+            form.reset();
+            form.element["first-name"].focus();
+        }
+    </script>
+</html>

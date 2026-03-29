@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Radio Buttons</title>
+    </head>
+
+    <body>
+        <h1>Select a Color:</h1>
+        <div>
+            <input type = "radio" name = "color" value = "red">Red<br>
+            <input type = "radio" name = "color" value = "green">Green<br>
+            <input type = "radio" name = "color" value = "blue">Blue<br><br>
+            <button type = "button" onclick = "showColor()">Show Color</button>
+            <p id = "result"></p>
+            <p>P S N V Sri Sravya, 24BCE2267</p>
+        </div>
+    </body>
+
+    <script>
+        function showColor()
+        {
+            var colors = document.getElementsByName('color');
+            var selected = "";
+
+            for (var i = 0; i < colors.length; i++)
+            {
+                if (colors[i].checked)
+                {
+                    selected = colors[i].value;
+                }
+            }
+
+            document.getElementById('result').innerHTML = "Selected color is " + selected;
+            document.body.style.backgroundColor = selected;
+        }
+    </script>
+</html>
